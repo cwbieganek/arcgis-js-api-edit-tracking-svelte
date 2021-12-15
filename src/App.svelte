@@ -3,7 +3,7 @@
 	import Header from "./components/Header.svelte";
 </script>
 
-<main>
+<main class='calcite-theme-dark'>
 	<Header title='ArcGIS API for JavaScript with Edit Tracking (Built using Svelte)' />
 	<h1>Hello {name}!</h1>
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
@@ -12,7 +12,7 @@
 <style>
 	main {
 		text-align: center;
-		padding: 1em;
+		padding: 0;
 		max-width: 240px;
 		margin: 0 auto;
 	}
