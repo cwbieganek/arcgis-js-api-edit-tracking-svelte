@@ -1,3 +1,9 @@
+# Mac
+.DS_Store
+
+# Svelte build output directory
+**/build/
+
 # Logs
 logs
 *.log
