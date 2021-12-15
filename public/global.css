@@ -1,3 +1,5 @@
+@import 'https://js.arcgis.com/4.22/esri/themes/dark/main.css';
+
 html, body {
 	position: relative;
 	width: 100%;
