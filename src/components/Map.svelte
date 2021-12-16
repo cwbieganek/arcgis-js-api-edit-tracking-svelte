@@ -1,6 +1,7 @@
 <script lang='ts'>
 	import WebMap from '@arcgis/core/WebMap';
 	import MapView from '@arcgis/core/views/MapView';
+	import Legend from '@arcgis/core/widgets/Legend';
 	import { onMount } from 'svelte';
 
 	onMount(async () => {
@@ -14,6 +15,14 @@
 			map: webmap,
 			container: 'container'
 		});
+
+		// Add legend
+		let legend = new Legend({
+  		view: view
+		});
+
+		// Add legend to bottom right corner of view
+		view.ui.add(legend, "bottom-right");
 	});
 </script>
 
