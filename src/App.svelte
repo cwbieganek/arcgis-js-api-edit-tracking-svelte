@@ -3,13 +3,15 @@
 	import Map from "./components/Map.svelte";
 </script>
 
-<main class='calcite-theme-dark'>
+<main class='calcite-theme-dark container'>
 	<Header title='ArcGIS API for JavaScript with Edit Tracking (Built using Svelte)' />
 	<Map />
 </main>
 
 <style>
 	main {
+		display: flex;
+		flex-direction: column;
 		text-align: center;
 		padding: 0;
 		max-width: 240px;

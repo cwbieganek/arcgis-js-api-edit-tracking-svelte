@@ -34,9 +34,10 @@ export default {
 	input: 'src/main.ts',
 	output: {
 		sourcemap: true,
-		format: 'iife',
+		format: 'umd',
 		name: 'app',
-		file: 'public/build/bundle.js'
+		file: 'public/build/bundle.js',
+		inlineDynamicImports: true
 	},
 	plugins: [
 		svelte({
