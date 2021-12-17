@@ -37,10 +37,8 @@
 		}
 
 		view.when(() => {
-			setTimeout(() => {
-				console.log('Revealing the map view.');
-				loading = false;
-			}, 3000);
+			console.log('Revealing the map view.');
+			loading = false;
 		});
 	}
 
