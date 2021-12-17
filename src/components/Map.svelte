@@ -8,6 +8,10 @@
 	export let zoom: number = 4;
 
 	onMount(async () => {
+		setupMapView();
+	});
+
+	function setupMapView() {
 		const webmap = new WebMap({
 			portalItem: {
 				id: "e691172598f04ea8881cd2a4adaa45ba"
@@ -29,7 +33,8 @@
 			// Add legend to bottom right corner of view
 			view.ui.add(legend, "bottom-right");
 		}
-	});
+	}
+
 </script>
 
 <div id='container' class='container'></div>
