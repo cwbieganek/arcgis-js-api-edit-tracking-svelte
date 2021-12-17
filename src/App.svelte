@@ -5,7 +5,7 @@
 
 <main class='calcite-theme-dark container'>
 	<Header title='ArcGIS API for JavaScript with Edit Tracking (Built using Svelte)' />
-	<Map include_legend={true} />
+	<Map includeLegend={true} />
 </main>
 
 <style>
