@@ -7,6 +7,8 @@
 	export let include_legend: boolean = false;
 	export let zoom: number = 4;
 
+	let loading = true;
+
 	onMount(async () => {
 		setupMapView();
 	});
@@ -37,11 +39,11 @@
 		view.when(() => {
 			setTimeout(() => {
 				console.log('Revealing the map view.');
-				document.getElementById('container').removeAttribute('style');
-			}, 10000);
+				loading = false;
+			}, 3000);
 		});
 	}
 
 </script>
 
-<div id='container' class='container' style='visibility: hidden;'></div>
+<div id='container' class='container' style={loading ? 'visibility: hidden;' : ''}></div>
