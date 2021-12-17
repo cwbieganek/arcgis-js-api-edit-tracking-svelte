@@ -4,6 +4,9 @@
 	import Legend from '@arcgis/core/widgets/Legend';
 	import { onMount } from 'svelte';
 
+	export let include_legend: boolean = false;
+	export let zoom: number = 4;
+
 	onMount(async () => {
 		const webmap = new WebMap({
 			portalItem: {
@@ -13,16 +16,19 @@
 
 		const view = new MapView({
 			map: webmap,
-			container: 'container'
+			container: 'container',
+			zoom: zoom
 		});
 
-		// Add legend
-		let legend = new Legend({
-  		view: view
-		});
+		if (include_legend) {
+			// Add legend
+			let legend = new Legend({
+				view: view
+			});
 
-		// Add legend to bottom right corner of view
-		view.ui.add(legend, "bottom-right");
+			// Add legend to bottom right corner of view
+			view.ui.add(legend, "bottom-right");
+		}
 	});
 </script>
 
