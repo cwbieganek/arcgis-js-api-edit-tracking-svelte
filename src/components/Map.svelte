@@ -4,7 +4,7 @@
 	import Legend from '@arcgis/core/widgets/Legend';
 	import { onMount } from 'svelte';
 
-	export let include_legend: boolean = false;
+	export let includeLegend: boolean = false;
 	export let zoom: number = 4;
 
 	let loading = true;
@@ -26,7 +26,7 @@
 			zoom: zoom
 		});
 
-		if (include_legend) {
+		if (includeLegend) {
 			// Add legend
 			let legend = new Legend({
 				view: view
