@@ -46,4 +46,8 @@
 
 </script>
 
+{#if loading}
+	<calcite-loader active type="indeterminate"></calcite-loader>
+{/if}
+
 <div id='container' class='container' style={loading ? 'visibility: hidden;' : ''}></div>
