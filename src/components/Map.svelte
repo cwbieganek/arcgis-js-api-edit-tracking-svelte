@@ -33,8 +33,15 @@
 			// Add legend to bottom right corner of view
 			view.ui.add(legend, "bottom-right");
 		}
+
+		view.when(() => {
+			setTimeout(() => {
+				console.log('Revealing the map view.');
+				document.getElementById('container').removeAttribute('style');
+			}, 10000);
+		});
 	}
 
 </script>
 
-<div id='container' class='container'></div>
+<div id='container' class='container' style='visibility: hidden;'></div>
