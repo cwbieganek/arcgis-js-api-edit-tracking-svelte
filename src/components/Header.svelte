@@ -14,7 +14,7 @@
 		align-items: center;
 		height: 60px;
 		/* background-color: var(--calcite-ui-foreground-3); */
-		background-color: #242424;
+		background-color: #242424;  /* This is the same as .esri-widget */
 		color: var(--calcite-ui-text-1);
 		padding: 0 1em;
 	}
