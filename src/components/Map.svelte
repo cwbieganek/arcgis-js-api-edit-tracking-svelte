@@ -1,11 +1,14 @@
 <script lang='ts'>
-	import WebMap from '@arcgis/core/WebMap';
+	import Map from '@arcgis/core/Map';
 	import MapView from '@arcgis/core/views/MapView';
 	import Legend from '@arcgis/core/widgets/Legend';
+	import FeatureLayer from '@arcgis/core/layers/FeatureLayer';
+	import Extent from '@arcgis/core/geometry/Extent';
 	import { onMount } from 'svelte';
 
 	export let includeLegend: boolean = false;
-	export let zoom: number = 4;
+	export let basemap: string = 'topo-vector';
+	// export let zoom: number = 4;
 
 	let loading = true;
 
@@ -14,18 +17,32 @@
 	});
 
 	function setupMapView() {
-		const webmap = new WebMap({
-			portalItem: {
-				id: "e691172598f04ea8881cd2a4adaa45ba"
-			}
+		const map = new Map({
+			basemap: basemap
 		});
 
 		const view = new MapView({
-			map: webmap,
+			map: map,
 			container: 'container',
-			zoom: zoom
+			extent: new Extent({
+				xmin: -9177811,
+				ymin: 4247000,
+				xmax: -9176791,
+				ymax: 4247784,
+				spatialReference: { wkid: 102100 }
+			})
 		});
 
+		addLayers(map);
+		addWidgets(view, includeLegend);
+
+		view.when(() => {
+			console.log('Revealing the map view.');
+			loading = false;
+		});
+	}
+
+	function addWidgets(view, includeLegend) {
 		if (includeLegend) {
 			// Add legend
 			let legend = new Legend({
@@ -35,11 +52,14 @@
 			// Add legend to bottom right corner of view
 			view.ui.add(legend, "bottom-right");
 		}
+	}
 
-		view.when(() => {
-			console.log('Revealing the map view.');
-			loading = false;
+	function addLayers(map) {
+		const featureLayer = new FeatureLayer({
+			url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Landscape_Trees/FeatureServer/0"
 		});
+
+		map.add(featureLayer);
 	}
 
 </script>
