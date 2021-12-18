@@ -44,10 +44,11 @@
 			})
 		});
 
-		addLayers(map);
+		let firstFeatureLayer: FeatureLayer = addLayers(map)[0];
 		addWidgets(view, includeLegend);
 
-		view.when(() => {
+		// Wait for FeatureLayerView to be ready for the first feature layer before showing MapView
+		view.whenLayerView(firstFeatureLayer).then(() => {
 			console.log('Revealing the map view.');
 			loading = false;
 		});
