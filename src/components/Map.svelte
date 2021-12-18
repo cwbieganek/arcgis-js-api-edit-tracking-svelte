@@ -7,8 +7,9 @@
 	import { onMount } from 'svelte';
 
 	type BasemapType = 
-	'topo-vector' |              // World Hillshade and World Topographic Map (V2)
+	'topo-vector' |              // World Hillshade and World Topographic Map V2 (no API key needed)
 	'arcgis-imagery' |           // Imagery Hybrid
+	'hybrid' |                   // World Boundaries and Place and World Imager (no API key needed)
 	'arcgis-imagery-standard' |  // Imagery
 	'arcgis-imagery-labels'      // The reference layer from arcgis-imagery
 
