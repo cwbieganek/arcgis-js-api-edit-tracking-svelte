@@ -1,3 +1,6 @@
+# txt file for storing git commit message in progress
+git-commits.txt
+
 # VS Code settings
 .vscode/
 
