@@ -6,8 +6,14 @@
 	import Extent from '@arcgis/core/geometry/Extent';
 	import { onMount } from 'svelte';
 
+	type BasemapType = 
+	'topo-vector' |              // World Hillshade and World Topographic Map (V2)
+	'arcgis-imagery' |           // Imagery Hybrid
+	'arcgis-imagery-standard' |  // Imagery
+	'arcgis-imagery-labels'      // The reference layer from arcgis-imagery
+
 	export let includeLegend: boolean = false;
-	export let basemap: string = 'topo-vector';
+	export let basemap: BasemapType = 'topo-vector';  // Default to topo-vector
 	// export let zoom: number = 4;
 
 	let loading = true;
