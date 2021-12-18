@@ -6,15 +6,17 @@
 	import Extent from '@arcgis/core/geometry/Extent';
 	import { onMount } from 'svelte';
 
-	type BasemapType = 
-	'topo-vector' |              // World Hillshade and World Topographic Map V2 (no API key needed)
+	type BasemapTypeNoTokenRequired = 
+	'topo-vector' |  // World Hillshade and World Topographic Map V2 (no API key needed)
+	'hybrid'         // World Boundaries and Place and World Imager (no API key needed)
+
+	type BasemapTypeTokenRequired = 
 	'arcgis-imagery' |           // Imagery Hybrid
-	'hybrid' |                   // World Boundaries and Place and World Imager (no API key needed)
 	'arcgis-imagery-standard' |  // Imagery
 	'arcgis-imagery-labels'      // The reference layer from arcgis-imagery
 
 	export let includeLegend: boolean = false;
-	export let basemap: BasemapType = 'topo-vector';  // Default to topo-vector
+	export let basemap: BasemapTypeNoTokenRequired = 'topo-vector';  // Default to topo-vector
 	// export let zoom: number = 4;
 
 	let loading = true;
