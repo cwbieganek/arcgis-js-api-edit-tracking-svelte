@@ -17,15 +17,17 @@
 
 	export let includeLegend: boolean = false;
 	export let basemap: BasemapTypeNoTokenRequired = 'topo-vector';  // Default to topo-vector
-	// export let zoom: number = 4;
 
-	let loading = true;
+	let loading = true;  // Controls the visibility of the loading component and the map
 
+	// Wait for component to be mounted before calling setupMapView()
+	// This is necessary because the #container element will not exist until the component mounts.
 	onMount(async () => {
 		setupMapView();
 	});
 
-	function setupMapView() {
+	// Creates Map, MapView, and adds widgets
+	function setupMapView(): void {
 		const map = new Map({
 			basemap: basemap
 		});
@@ -51,7 +53,8 @@
 		});
 	}
 
-	function addWidgets(view, includeLegend) {
+	// Adds widgets to the MapView. Only adds a legend for now, and the location cannot be controlled.
+	function addWidgets(view: MapView, includeLegend: boolean): void {
 		if (includeLegend) {
 			// Add legend
 			let legend = new Legend({
@@ -63,7 +66,8 @@
 		}
 	}
 
-	function addLayers(map) {
+	// Adds layers to the map. The layers that get added cannot be controlled for now.
+	function addLayers(map: Map): void {
 		const featureLayer = new FeatureLayer({
 			url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Landscape_Trees/FeatureServer/0"
 		});
