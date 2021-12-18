@@ -71,6 +71,12 @@
 		map.add(featureLayer);
 	}
 
+	// Makes a client-side copy of a FeatureLayer from an array of graphics
+	// Useful for making an editable copy of a normally un-editable layer
+	function getClientSideCopyOfFeatureLayer(featureLayer: FeatureLayer): void {
+		return;
+	}
+
 </script>
 
 {#if loading}
