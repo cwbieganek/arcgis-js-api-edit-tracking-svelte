@@ -67,12 +67,14 @@
 	}
 
 	// Adds layers to the map. The layers that get added cannot be controlled for now.
-	function addLayers(map: Map): void {
+	function addLayers(map: Map): FeatureLayer[] {
 		const featureLayer = new FeatureLayer({
 			url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Landscape_Trees/FeatureServer/0"
 		});
 
 		map.add(featureLayer);
+
+		return [featureLayer];
 	}
 
 	// Makes a client-side copy of a FeatureLayer from an array of graphics
