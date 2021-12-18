@@ -5,7 +5,7 @@
 
 <main class='calcite-theme-dark container'>
 	<Header title='ArcGIS API for JavaScript with Edit Tracking (Built using Svelte)' />
-	<Map includeLegend={true} basemap={'topo-vector'} />
+	<Map includeLegend={true} basemap={'arcgis-imagery'} />
 </main>
 
 <style>
