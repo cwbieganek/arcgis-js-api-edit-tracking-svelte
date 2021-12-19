@@ -53,9 +53,9 @@
 
 				// Wait for FeatureLayerView to be ready for the first feature layer before showing MapView
 				view.whenLayerView(firstFeatureLayer).then(() => {
-				console.log('Revealing the map view.');
-				loading = false;
-			});
+					console.log('Revealing the map view.');
+					loading = false;
+				});
 		});
 
 		// Synchronously add widgets while layers are being added
