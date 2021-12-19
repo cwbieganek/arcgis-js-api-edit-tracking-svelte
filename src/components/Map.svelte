@@ -58,7 +58,7 @@
 				// Wait for FeatureLayerView to be ready for the first feature layer before showing MapView
 				view.whenLayerView(firstFeatureLayer).then(() => {
 					// Make firstFeatureLayer editable
-					addEditWidget(view, firstFeatureLayer);
+					addEditorWidget(view, firstFeatureLayer);
 
 					console.log('Revealing the map view.');
 					loading = false;
@@ -102,7 +102,7 @@
 
 	// Adds an Editor widget for the one and only (for now) feature layer.
 	// All fields will be editable by default since we don't pass any configuration information.
-	function addEditWidget(view: MapView, featureLayer: FeatureLayer): void {
+	function addEditorWidget(view: MapView, featureLayer: FeatureLayer): void {
 		const editor = new Editor({
 			view: view
 		});
