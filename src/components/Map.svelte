@@ -1,6 +1,7 @@
 <script lang='ts'>
 	import Map from '@arcgis/core/Map';
 	import MapView from '@arcgis/core/views/MapView';
+	import Expand from '@arcgis/core/widgets/Expand';
 	import Legend from '@arcgis/core/widgets/Legend';
 	import FeatureLayer from '@arcgis/core/layers/FeatureLayer';
 	import Query from '@arcgis/core/rest/support/Query';
@@ -66,13 +67,19 @@
 	function addWidgets(view: MapView, includeLegend: boolean): void {
 		console.log('Adding widgets.');
 		if (includeLegend) {
-			// Add legend
+			// Create legend
 			let legend = new Legend({
 				view: view
 			});
 
+			// Create Expand widget for holding the legend
+			const expand = new Expand({
+				view: view,
+				content: legend
+			});
+
 			// Add legend to bottom right corner of view
-			view.ui.add(legend, "bottom-right");
+			view.ui.add(expand, "bottom-right");
 		}
 	}
 
