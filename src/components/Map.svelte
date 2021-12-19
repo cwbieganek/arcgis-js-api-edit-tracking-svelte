@@ -3,6 +3,7 @@
 	import MapView from '@arcgis/core/views/MapView';
 	import Expand from '@arcgis/core/widgets/Expand';
 	import Legend from '@arcgis/core/widgets/Legend';
+	import Editor from '@arcgis/core/widgets/Editor';
 	import FeatureLayer from '@arcgis/core/layers/FeatureLayer';
 	import Query from '@arcgis/core/rest/support/Query';
 	import Extent from '@arcgis/core/geometry/Extent';
@@ -54,6 +55,9 @@
 
 				// Wait for FeatureLayerView to be ready for the first feature layer before showing MapView
 				view.whenLayerView(firstFeatureLayer).then(() => {
+					// Make firstFeatureLayer editable
+					addEditWidget(view, firstFeatureLayer);
+
 					console.log('Revealing the map view.');
 					loading = false;
 				});
@@ -81,6 +85,20 @@
 			// Add legend to bottom right corner of view
 			view.ui.add(expand, "bottom-right");
 		}
+	}
+
+	function addEditWidget(view: MapView, featureLayer: FeatureLayer): void {
+		const editor = new Editor({
+			view: view
+		});
+
+		// Create Expand widget for holding the legend
+		const expand = new Expand({
+			view: view,
+			content: editor
+		});
+
+		view.ui.add(expand, "bottom-right");
 	}
 
 	// Adds layers to the map. The layers that get added cannot be controlled for now.
