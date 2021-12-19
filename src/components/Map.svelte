@@ -36,6 +36,7 @@
 			basemap: basemap
 		});
 
+		// MapView is responsible for visualizing the Map and widgets, controlling zoom, extent, etc.
 		const view = new MapView({
 			map: map,
 			container: 'container',
@@ -48,6 +49,8 @@
 			})
 		});
 		
+		// It might be better to add the layers after the view is ready, like the example below:
+		// https://developers.arcgis.com/javascript/latest/sample-code/widgets-featuretable-editing/
 		addLayers(map).then((featureLayers) => {
 				console.log('Feature layer(s) added to the map.');
 				let firstFeatureLayer = featureLayers[0];
@@ -97,6 +100,8 @@
 		}
 	}
 
+	// Adds an Editor widget for the one and only (for now) feature layer.
+	// All fields will be editable by default since we don't pass any configuration information.
 	function addEditWidget(view: MapView, featureLayer: FeatureLayer): void {
 		const editor = new Editor({
 			view: view
