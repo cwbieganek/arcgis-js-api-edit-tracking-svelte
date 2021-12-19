@@ -2,11 +2,9 @@
 	import Map from '@arcgis/core/Map';
 	import MapView from '@arcgis/core/views/MapView';
 	import Expand from '@arcgis/core/widgets/Expand';
-	import Legend from '@arcgis/core/widgets/Legend';
 	import LayerList from '@arcgis/core/widgets/LayerList';
 	import Editor from '@arcgis/core/widgets/Editor';
 	import FeatureLayer from '@arcgis/core/layers/FeatureLayer';
-	import Query from '@arcgis/core/rest/support/Query';
 	import Extent from '@arcgis/core/geometry/Extent';
 	import { onMount } from 'svelte';
 
