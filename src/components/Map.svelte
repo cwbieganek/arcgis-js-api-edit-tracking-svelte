@@ -3,6 +3,7 @@
 	import MapView from '@arcgis/core/views/MapView';
 	import Legend from '@arcgis/core/widgets/Legend';
 	import FeatureLayer from '@arcgis/core/layers/FeatureLayer';
+	import Query from '@arcgis/core/rest/support/Query';
 	import Extent from '@arcgis/core/geometry/Extent';
 	import { onMount } from 'svelte';
 
@@ -43,15 +44,19 @@
 				spatialReference: { wkid: 102100 }
 			})
 		});
+		
+		addLayers(map).then((featureLayers) => {
+				let firstFeatureLayer = featureLayers[0];
 
-		let firstFeatureLayer: FeatureLayer = addLayers(map)[0];
-		addWidgets(view, includeLegend);
-
-		// Wait for FeatureLayerView to be ready for the first feature layer before showing MapView
-		view.whenLayerView(firstFeatureLayer).then(() => {
-			console.log('Revealing the map view.');
-			loading = false;
+				// Wait for FeatureLayerView to be ready for the first feature layer before showing MapView
+				view.whenLayerView(firstFeatureLayer).then(() => {
+				console.log('Revealing the map view.');
+				loading = false;
+			});
 		});
+
+		// Synchronously add widgets while layers are being added
+		addWidgets(view, includeLegend);
 	}
 
 	// Adds widgets to the MapView. Only adds a legend for now, and the location cannot be controlled.
@@ -68,22 +73,42 @@
 	}
 
 	// Adds layers to the map. The layers that get added cannot be controlled for now.
-	function addLayers(map: Map): FeatureLayer[] {
-		const featureLayer = new FeatureLayer({
-			url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Landscape_Trees/FeatureServer/0"
+	function addLayers(map: Map): Promise<FeatureLayer[]> {
+		console.log('Adding layers to map.');
+		return new Promise((resolve, reject) => {
+			const featureLayer = new FeatureLayer({
+				url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Landscape_Trees/FeatureServer/0"
+			});
+
+			getClientSideCopyOfFeatureLayer(featureLayer).then((featureLayerClientSideCopy) => {
+				console.log('Created client-side copy of feature layer.');
+				map.add(featureLayerClientSideCopy);
+				resolve([featureLayerClientSideCopy]);
+			});
 		});
-
-		map.add(featureLayer);
-
-		return [featureLayer];
 	}
 
 	// Makes a client-side copy of a FeatureLayer from an array of graphics
 	// Useful for making an editable copy of a normally un-editable layer
-	function getClientSideCopyOfFeatureLayer(featureLayer: FeatureLayer): void {
-		return;
-	}
+	function getClientSideCopyOfFeatureLayer(featureLayer: FeatureLayer): Promise<FeatureLayer> {
+		console.log('Creating client-side copy ');
+		return new Promise((resolve, reject) => {
+			let query = featureLayer.createQuery();
+			query.where = '1 = 1';
+			featureLayer.queryFeatures(query).then((featureSet) => {
+				const graphics = featureSet.features;
+				const featureLayerClientSideCopy = new FeatureLayer({
+					source: graphics,
+					fields: featureSet.fields,
+					geometryType: featureLayer.geometryType,
+					title: featureLayer.title,
+					renderer: featureLayer.renderer
+				});
 
+				resolve(featureLayerClientSideCopy);
+			});
+		});
+	}
 </script>
 
 {#if loading}
