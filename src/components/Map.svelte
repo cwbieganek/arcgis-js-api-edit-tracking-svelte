@@ -3,6 +3,7 @@
 	import MapView from '@arcgis/core/views/MapView';
 	import Expand from '@arcgis/core/widgets/Expand';
 	import Legend from '@arcgis/core/widgets/Legend';
+	import LayerList from '@arcgis/core/widgets/LayerList';
 	import Editor from '@arcgis/core/widgets/Editor';
 	import FeatureLayer from '@arcgis/core/layers/FeatureLayer';
 	import Query from '@arcgis/core/rest/support/Query';
@@ -67,22 +68,33 @@
 		addWidgets(view, includeLegend);
 	}
 
-	// Adds widgets to the MapView. Only adds a legend for now, and the location cannot be controlled.
+	// Adds widgets to the MapView. Only adds a LayerList with built-in Legend for now, and the location cannot be controlled.
 	function addWidgets(view: MapView, includeLegend: boolean): void {
 		console.log('Adding widgets.');
 		if (includeLegend) {
-			// Create legend
-			let legend = new Legend({
-				view: view
+			// Create LayerList with built-in Legend
+			const layerList = new LayerList({
+				view: view,
+				listItemCreatedFunction: (event) => {
+					const item = event.item;
+
+					if (item.layer.type == 'group') { return; }
+
+					// Don't show legend twice
+					item.panel = {
+						content: 'legend',
+						open: true
+					}
+				}
 			});
 
-			// Create Expand widget for holding the legend
+			// Create Expand widget for holding the Legend
 			const expand = new Expand({
 				view: view,
-				content: legend
+				content: layerList
 			});
 
-			// Add legend to bottom right corner of view
+			// Add Legend to bottom right corner of view
 			view.ui.add(expand, "bottom-right");
 		}
 	}
