@@ -24,11 +24,13 @@
 	// Wait for component to be mounted before calling setupMapView()
 	// This is necessary because the #container element will not exist until the component mounts.
 	onMount(async () => {
+		console.log('Map component has mounted.');
 		setupMapView();
 	});
 
 	// Creates Map, MapView, and adds widgets
 	function setupMapView(): void {
+		console.log('Setting up map view.');
 		const map = new Map({
 			basemap: basemap
 		});
@@ -46,6 +48,7 @@
 		});
 		
 		addLayers(map).then((featureLayers) => {
+				console.log('Feature layer(s) added to the map.');
 				let firstFeatureLayer = featureLayers[0];
 
 				// Wait for FeatureLayerView to be ready for the first feature layer before showing MapView
@@ -61,6 +64,7 @@
 
 	// Adds widgets to the MapView. Only adds a legend for now, and the location cannot be controlled.
 	function addWidgets(view: MapView, includeLegend: boolean): void {
+		console.log('Adding widgets.');
 		if (includeLegend) {
 			// Add legend
 			let legend = new Legend({
@@ -74,7 +78,7 @@
 
 	// Adds layers to the map. The layers that get added cannot be controlled for now.
 	function addLayers(map: Map): Promise<FeatureLayer[]> {
-		console.log('Adding layers to map.');
+		console.log('Adding feature layer(s) to map.');
 		return new Promise((resolve, reject) => {
 			const featureLayer = new FeatureLayer({
 				url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Landscape_Trees/FeatureServer/0"
