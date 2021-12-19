@@ -94,8 +94,8 @@
 				content: layerList
 			});
 
-			// Add Legend to bottom right corner of view
-			view.ui.add(expand, "bottom-right");
+			// Add Legend to top right corner of view
+			view.ui.add(expand, "top-right");
 		}
 	}
 
@@ -110,7 +110,7 @@
 			content: editor
 		});
 
-		view.ui.add(expand, "bottom-right");
+		view.ui.add(expand, "top-right");
 	}
 
 	// Adds layers to the map. The layers that get added cannot be controlled for now.
