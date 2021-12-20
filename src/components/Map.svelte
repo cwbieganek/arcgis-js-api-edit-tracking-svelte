@@ -210,7 +210,5 @@
 	#feature-table-container {
 		height: 25%;
 		max-height: 50%;
-		/* resize: vertical;
-		overflow: auto; */
 	}
 </style>
