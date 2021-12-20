@@ -226,24 +226,24 @@
 		};
 
 		const mouseMoveHandler = function (e) {
-				// How far the mouse has been moved
-				const dx = e.clientX - x;
-				const dy = e.clientY - y;
+			// How far the mouse has been moved
+			const dx = e.clientX - x;
+			const dy = e.clientY - y;
 
-				switch (direction) {
-						case 'vertical':
-							const h =
-									((prevSiblingHeight + dy) * 100) /
-									resizer.parentNode.getBoundingClientRect().height;
-							prevSibling.style.height = `${h}%`;
-							break;
-						case 'horizontal':
-						default:
-							const w =
-									((prevSiblingWidth + dx) * 100) / resizer.parentNode.getBoundingClientRect().width;
-							prevSibling.style.width = `${w}%`;
-							break;
-				}
+			switch (direction) {
+				case 'vertical':
+					const h =
+						((prevSiblingHeight + dy) * 100) /
+						resizer.parentNode.getBoundingClientRect().height;
+					prevSibling.style.height = `${h}%`;
+					break;
+				case 'horizontal':
+				default:
+					const w =
+						((prevSiblingWidth + dx) * 100) / resizer.parentNode.getBoundingClientRect().width;
+						prevSibling.style.width = `${w}%`;
+					break;
+			}
 
 			const cursor = direction === 'horizontal' ? 'col-resize' : 'row-resize';
 			resizer.style.cursor = cursor;
