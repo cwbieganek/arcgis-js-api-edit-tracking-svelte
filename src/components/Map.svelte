@@ -284,6 +284,9 @@
 	<div id='map-container' class='container'></div>
 	<div class='resizer' data-direction='vertical'></div>
 	<div id='feature-table-container' class='container'>
+		<div id='table-toggle-container'>
+			<calcite-button color="inverse" appearance="outline" icon-start="caret-double-vertical">Show/Hide Table</calcite-button>
+		</div>
 		<div id='feature-table'></div>
 	</div>
 </div>
@@ -302,12 +305,21 @@
 	#feature-table-container {
 		flex: 1;
 		max-height: 75%;
+		position: relative;
 	}
 
 	.resizer[data-direction='vertical'] {
-			background-color: white;
-			cursor: ns-resize;
-			height: 3px;
-			width: 100%;
+		background-color: white;
+		cursor: ns-resize;
+		height: 3px;
+		width: 100%;
+	}
+
+	#table-toggle-container {
+		position: absolute;
+		width: 162px;
+		top: 0%;
+		left: 50%;
+		transform: translate(-50%, -100%);
 	}
 </style>
