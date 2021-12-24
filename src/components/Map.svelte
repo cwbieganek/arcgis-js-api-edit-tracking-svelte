@@ -129,34 +129,34 @@
 	function addEditableFeatureTable(featureLayer: FeatureLayer, view: MapView, container: HTMLDivElement) {
 		// Create the feature table
 		const featureTable = new FeatureTable({
-				view: view,
-				layer: featureLayer,
-				editingEnabled: true,
-				// Autocast the FieldColumnConfigs
-				fieldConfigs: [{
-					name: "Tree_ID",
-					label: "Tree ID",
-					editable: false,
-					direction: "asc"
-				},
-				{
-					name: "Collected",
-					label: "Collected"
-				},
-				{
-					name: "Crew",
-					label: "Crew"
-				},
-				{
-					name: "Status",
-					label: "Status"
-				},
-				{
-					name: "Arrest",
-					label: "Arrest"
-				}],
-				container: container
-			});
+			view: view,
+			layer: featureLayer,
+			editingEnabled: true,
+			// Autocast the FieldColumnConfigs
+			fieldConfigs: [{
+				name: "Tree_ID",
+				label: "Tree ID",
+				editable: false,
+				direction: "asc"
+			},
+			{
+				name: "Collected",
+				label: "Collected"
+			},
+			{
+				name: "Crew",
+				label: "Crew"
+			},
+			{
+				name: "Status",
+				label: "Status"
+			},
+			{
+				name: "Arrest",
+				label: "Arrest"
+			}],
+			container: container
+		});
 	}
 
 	// Adds layers to the map. The layers that get added cannot be controlled for now.
