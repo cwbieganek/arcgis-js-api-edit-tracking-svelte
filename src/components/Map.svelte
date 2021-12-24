@@ -157,6 +157,13 @@
 			}],
 			container: container
 		});
+
+		// Add show/hide button click event listener
+		let tableToggleButton = document.getElementById('table-toggle-button');
+		let mapContainer = document.getElementById('map-container');
+		tableToggleButton.addEventListener('click', (e) => {
+			mapContainer.style.height = mapContainer.style.height === '100%' ? '50%': '100%';
+		});
 	}
 
 	// Adds layers to the map. The layers that get added cannot be controlled for now.
@@ -285,7 +292,7 @@
 	<div class='resizer' data-direction='vertical'></div>
 	<div id='feature-table-container' class='container'>
 		<div id='table-toggle-container'>
-			<calcite-button color="inverse" appearance="outline" icon-start="caret-double-vertical">Show/Hide Table</calcite-button>
+			<calcite-button id="table-toggle-button" color="inverse" appearance="outline" icon-start="caret-double-vertical">Show/Hide Table</calcite-button>
 		</div>
 		<div id='feature-table'></div>
 	</div>
@@ -297,8 +304,7 @@
 	}
 
 	#map-container {
-		height: 75%;
-		max-height: 90%;
+		height: 100%;
 		min-height: 25%;
 	}
 
@@ -321,5 +327,6 @@
 		top: 0%;
 		left: 50%;
 		transform: translate(-50%, -100%);
+		box-sizing: border-box;
 	}
 </style>
