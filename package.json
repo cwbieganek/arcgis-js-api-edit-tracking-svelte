@@ -9,6 +9,7 @@
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
+    "@arcgis/core": "^4.22.2",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
     "@rollup/plugin-typescript": "^8.0.0",
@@ -25,7 +26,6 @@
     "typescript": "^4.0.0"
   },
   "dependencies": {
-    "@arcgis/core": "^4.22.1",
     "sirv-cli": "^1.0.0"
   }
 }
