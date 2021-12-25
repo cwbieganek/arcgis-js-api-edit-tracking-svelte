@@ -162,7 +162,7 @@
 		let tableToggleButton = document.getElementById('table-toggle-button');
 		let mapContainer = document.getElementById('map-container');
 		tableToggleButton.addEventListener('click', (e) => {
-			mapContainer.style.height = mapContainer.style.height === '100%' ? '50%': '100%';
+			mapContainer.style.height = ['100%', ''].includes(mapContainer.style.height) ? '50%' : '100%';
 		});
 	}
 
