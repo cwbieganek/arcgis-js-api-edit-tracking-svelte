@@ -80,3 +80,15 @@ button:focus {
 	padding: 0;
 	margin: 0;
 }
+
+.edits-list-container {
+	padding: 8px;
+	width: 210px;
+	box-sizing: border-box;
+}
+
+.edits-list-item {
+	padding: 8px;
+	border: 1px solid white;
+	text-align: start;
+}

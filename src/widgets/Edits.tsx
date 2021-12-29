@@ -75,7 +75,7 @@ class Edits extends Widget {
 
 	private renderEdit(edit: Edit, num: number) {
 		return (
-			<div>
+			<div class="edits-list-item">
 				{edit.type} change (edit #{num}): {
 				edit.type === 'geometry' ? 
 				'Moved ' + edit.moveDistance.toString() : 
@@ -87,8 +87,8 @@ class Edits extends Widget {
 
 	render() {
 		return (
-			<div>
-				<div>Edits</div>
+			<div class="esri-widget edits-list-container">
+				<h3>Edits</h3>
 				<div>
 					{this.state.edits.map((edit, i) => {
 						return this.renderEdit(edit, i + 1);
