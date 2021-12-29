@@ -30,8 +30,25 @@ class Edits extends Widget {
 		super(params);
 
 		this.state = {
-			edits: []
-		}
+			edits: [
+				{
+					type: 'attribute',
+					attributeChange: {
+						name: 'Letter',
+						oldValue: 'A',
+						newValue: 'B'
+					}
+				},
+				{
+					type: 'attribute',
+					attributeChange: {
+						name: 'Rating',
+						oldValue: 9,
+						newValue: 10
+					}
+				}
+			]
+		};
 	}
 
 	addGeometryEdit(moveDistance: number): void {
@@ -72,9 +89,11 @@ class Edits extends Widget {
 		return (
 			<div>
 				<div>Edits</div>
-				{this.state.edits.map((edit, i) => {
-					this.renderEdit(edit, i + 1);
-				})}
+				<div>
+					{this.state.edits.map((edit, i) => {
+						return this.renderEdit(edit, i + 1);
+					})}
+				</div>
 			</div>
 		);
 	}
