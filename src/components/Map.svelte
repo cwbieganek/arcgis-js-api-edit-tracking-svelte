@@ -115,6 +115,20 @@
 		let edits = new Edits();
 		edits.addAttributeEdit('Rating', 6, 10);
 		edits.addAttributeEdit('Letter', 'A', 'B');
+		edits.addAttributeEdit('Rating', 6, 10);
+		edits.addAttributeEdit('Letter', 'A', 'B');
+		edits.addAttributeEdit('Rating', 6, 10);
+		edits.addAttributeEdit('Letter', 'A', 'B');
+		edits.addAttributeEdit('Rating', 6, 10);
+		edits.addAttributeEdit('Letter', 'A', 'B');
+		edits.addAttributeEdit('Rating', 6, 10);
+		edits.addAttributeEdit('Letter', 'A', 'B');
+		edits.addAttributeEdit('Rating', 6, 10);
+		edits.addAttributeEdit('Letter', 'A', 'B');
+		edits.addAttributeEdit('Rating', 6, 10);
+		edits.addAttributeEdit('Letter', 'A', 'B');
+		edits.addAttributeEdit('Rating', 6, 10);
+		edits.addAttributeEdit('Letter', 'A', 'B');
 
 		// Create Expand widget for holding the Edits list widget
 		const expand = new Expand({
