@@ -84,8 +84,6 @@ button:focus {
 .edits-list-container {
 	padding: 10px;
 	width: 300px;
-	/* max-height: 500px; */
-	max-height: 80%;
 	box-sizing: border-box;
 	border-radius: 4px;
 	overflow: auto;
