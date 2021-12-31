@@ -89,7 +89,7 @@ class Edits extends Widget {
 		return (
 			<div class="esri-widget edits-list-container">
 				<h3>Edits</h3>
-				<div>
+				<div class="edits-list-item-container">
 					{this.state.edits.map((edit, i) => {
 						return this.renderEdit(edit, i + 1);
 					})}

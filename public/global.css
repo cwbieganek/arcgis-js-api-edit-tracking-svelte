@@ -82,11 +82,13 @@ button:focus {
 }
 
 .edits-list-container {
-	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	padding: 0 10px;
 	width: 300px;
 	box-sizing: border-box;
-	border-radius: 4px;
 	overflow: auto;
+	max-height: 420px; /* This is the same max-height as the expand container created by the JS API */
 }
 
 .edits-list-item {
