@@ -98,4 +98,11 @@ button:focus {
 	text-align: start;
 	background-color: #303030;
 	margin-bottom: 8px;
+	box-sizing: border-box;
+}
+
+.edits-list-item:hover {
+	box-shadow: none;
+	border: 1px solid gray;
+	cursor: pointer;
 }
