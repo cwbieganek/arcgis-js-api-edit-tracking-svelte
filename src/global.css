@@ -80,3 +80,31 @@ button:focus {
 	padding: 0;
 	margin: 0;
 }
+
+.edits-list-container {
+	display: flex;
+	flex-direction: column;
+	padding: 0 10px;
+	width: 300px;
+	box-sizing: border-box;
+	overflow: auto;
+	max-height: 420px; /* This is the same max-height as the expand container created by the JS API */
+	background-color: #303030; /* Overrides .esri-widget */
+}
+
+.edits-list-item {
+	padding: 8px;
+	border: 1px solid black;
+	box-shadow: 0 1px 2px #161616;
+	text-align: start;
+	/* background-color: #303030; */
+	background-color: #242424;
+	margin-bottom: 6px;
+	box-sizing: border-box;
+}
+
+.edits-list-item:hover {
+	box-shadow: none;
+	border: 1px solid gray;
+	cursor: pointer;
+}

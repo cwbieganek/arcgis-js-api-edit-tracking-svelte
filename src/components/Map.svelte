@@ -9,6 +9,9 @@
 	import Extent from '@arcgis/core/geometry/Extent';
 	import { onMount } from 'svelte';
 
+	// Custom widget(s)
+	import Edits from '../widgets/Edits';
+
 	type BasemapTypeNoTokenRequired = 
 	'topo-vector' |  // World Hillshade and World Topographic Map V2 (no API key needed)
 	'hybrid'         // World Boundaries and Place and World Imager (no API key needed)
@@ -108,6 +111,34 @@
 			// Add Legend to top right corner of view
 			view.ui.add(expand, "top-right");
 		}
+
+		let edits = new Edits();
+		edits.addAttributeEdit('Rating', 6, 10);
+		edits.addAttributeEdit('Letter', 'A', 'B');
+		edits.addAttributeEdit('Rating', 6, 10);
+		edits.addAttributeEdit('Letter', 'A', 'B');
+		edits.addAttributeEdit('Rating', 6, 10);
+		edits.addAttributeEdit('Letter', 'A', 'B');
+		edits.addAttributeEdit('Rating', 6, 10);
+		edits.addAttributeEdit('Letter', 'A', 'B');
+		edits.addAttributeEdit('Rating', 6, 10);
+		edits.addAttributeEdit('Letter', 'A', 'B');
+		edits.addAttributeEdit('Rating', 6, 10);
+		edits.addAttributeEdit('Letter', 'A', 'B');
+		edits.addAttributeEdit('Rating', 6, 10);
+		edits.addAttributeEdit('Letter', 'A', 'B');
+		edits.addAttributeEdit('Rating', 6, 10);
+		edits.addAttributeEdit('Letter', 'A', 'B');
+
+		// Create Expand widget for holding the Edits list widget
+		const expand = new Expand({
+			view: view,
+			content: edits,
+			expandIconClass: 'esri-icon-layer-list'
+		});
+
+		// Add Edits list widget to top right corner of view
+		view.ui.add(expand, "top-right");
 	}
 
 	// Adds an Editor widget for the one and only (for now) feature layer.
