@@ -74,9 +74,11 @@ class Edits extends Widget {
 	}
 
 	private renderEdit(edit: Edit, num: number) {
+		let editTypeCapitalized = edit.type[0].toUpperCase() + edit.type.slice(1);
+		
 		return (
 			<div class="edits-list-item">
-				{edit.type} change (edit #{num}): {
+				{editTypeCapitalized} change (edit #{num}): {
 				edit.type === 'geometry' ? 
 				'Moved ' + edit.moveDistance.toString() : 
 				edit.attributeChange.name + ' changed from ' + edit.attributeChange.oldValue + ' to ' + edit.attributeChange.newValue
