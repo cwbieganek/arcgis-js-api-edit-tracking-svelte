@@ -87,9 +87,13 @@ button:focus {
 	padding: 0 10px;
 	width: 300px;
 	box-sizing: border-box;
-	overflow: auto;
+	overflow: hidden;
 	max-height: 420px; /* This is the same max-height as the expand container created by the JS API */
 	background-color: #303030; /* Overrides .esri-widget */
+}
+
+.edits-list-item-container {
+	overflow-y: scroll;
 }
 
 .edits-list-item {
