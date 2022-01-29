@@ -77,7 +77,7 @@ class Edits extends Widget {
 		let editTypeCapitalized = edit.type[0].toUpperCase() + edit.type.slice(1);
 		
 		return (
-			<div class="edits-list-item">
+			<div class="edits-list__item">
 				{editTypeCapitalized} change (edit #{num}): {
 				edit.type === 'geometry' ? 
 				'Moved ' + edit.moveDistance.toString() : 
@@ -89,9 +89,9 @@ class Edits extends Widget {
 
 	render() {
 		return (
-			<div class="esri-widget edits-list-container">
+			<div class="esri-widget edits-list">
 				<h3>Edits</h3>
-				<div class="edits-list-item-container">
+				<div class="edits-list__items-container">
 					{this.state.edits.map((edit, i) => {
 						return this.renderEdit(edit, i + 1);
 					})}

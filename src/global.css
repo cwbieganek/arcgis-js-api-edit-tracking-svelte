@@ -49,7 +49,7 @@ button:focus {
 	margin: 0;
 }
 
-.edits-list-container {
+.edits-list {
 	display: flex;
 	flex-direction: column;
 	padding: 0 10px;
@@ -60,11 +60,11 @@ button:focus {
 	background-color: #303030; /* Overrides .esri-widget */
 }
 
-.edits-list-item-container {
+.edits-list__items-container {
 	overflow-y: scroll;
 }
 
-.edits-list-item {
+.edits-list__item {
 	padding: 8px;
 	border: 1px solid black;
 	box-shadow: 0 1px 2px #161616;
@@ -75,7 +75,7 @@ button:focus {
 	box-sizing: border-box;
 }
 
-.edits-list-item:hover {
+.edits-list__item:hover {
 	box-shadow: none;
 	border: 1px solid gray;
 	cursor: pointer;
